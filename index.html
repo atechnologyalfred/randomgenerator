@@ -67,6 +67,19 @@
         text-decoration: underline;
         text-decoration-color: green;
     }
+
+        @media(max-width: 768px){
+        .container {
+        width: 98%;
+        height: 98%;
+         margin-top: 2.6rem;
+        }
+            ul {
+        overflow: auto;
+        width: 90%;     
+
+    }
+    }
 </style>
 
 <body>
@@ -92,13 +105,24 @@
         console.log("welcome");
         const random = Math.floor(Math.random() * names.length);
         const list = document.createElement('li');
+        const del = document.createElement('button');
+        del.textContent = 'x';
+        del.style.color = 'red';
+        del.style.border = 'none';
+        del.addEventListener('click', function(){
+            list.remove()
+        })
         list.innerHTML = `My name is <span class="name" onclick="showBox('${names[random]}')">${names[random]}</span>, I am in the phoenix cohort of Ts academy`
+        list.appendChild(del);
         display.appendChild(list);
+
 
     })
     function showBox(value){
         alert(`Your name is ${value} `)
     }
+
+
 </script>
 
 </html>
